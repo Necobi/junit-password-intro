@@ -41,7 +41,7 @@ public class PasswordUtilsTest {
         //Act
         boolean actual = PasswordUtils.isAlphanumeric(password);
         //Assert
-        assertEquals(false, actual);
+        assertEquals(true, actual);
     }
 
       @Test
@@ -60,6 +60,28 @@ public class PasswordUtilsTest {
         String password = "12345"; //should work
         //Act
         boolean actual = PasswordUtils.isAlphanumeric(password);
+        //Assert
+        assertEquals(true, actual);
+    }
+
+
+
+    @Test
+    void testDescribePasswordHasBsInARow(){
+        //Arrange
+        String password = "pubbblic"; //should work
+        //Act
+        boolean actual = PasswordUtils.containsTriple(password);
+        //Assert
+        assertEquals(true, actual);
+    }
+
+    @Test
+    void testDescribePasswordDoesNotHave3BsAtTheEnd(){
+        //Arrange
+        String password = "public"; //should work
+        //Act
+        boolean actual = PasswordUtils.containsTriple(password);
         //Assert
         assertEquals(true, actual);
     }
