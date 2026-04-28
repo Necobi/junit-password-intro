@@ -147,5 +147,17 @@ public class PasswordUtilsTest {
         assertEquals(false, actual);
     }
 
+    @Test
+    void testDescribePasswordDoesHaveSufficientAmountOfSpecialChars8(){
+        //Arrange
+        String password = "!pass(word)^is$12345**&"; 
+        int specialCharCount = 8;
+        //Act
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password,specialCharCount);
+        //Assert
+        assertEquals(true, actual);
+    }
+
+
 }
 
